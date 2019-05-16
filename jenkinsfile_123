@@ -1,0 +1,29 @@
+pipeline{
+ 
+  agent any
+  stages {
+   
+     stage ('Build a maven project'){
+	        steps{
+			   bat 'mvn clean package'
+			   
+			      }
+	         post{
+			 success{
+			     echo 'Now Archiving.....'
+				 archiveArtifacts: '**/*.war
+			 
+			        }
+			     }
+	 
+	 
+	                             }
+  
+  
+  
+         }
+
+
+
+
+}
